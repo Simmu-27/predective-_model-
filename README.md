@@ -54,25 +54,3 @@ One location, one-day-ahead, no pressure/humidity/cloud inputs, not an operation
 
 ## Project report outline
 1 Title, certificate, acknowledgement · 2 Abstract · 3 Introduction & problem statement · 4 Literature survey · 5 Objectives & scope · 6 Dataset description · 7 System design (architecture, data-flow, API list) · 8 Methodology (cleaning, features, split, models) · 9 Implementation (screenshots, code snippets) · 10 Results (metrics table, charts, model comparison) · 11 Testing · 12 Limitations & future scope · 13 Conclusion · 14 References · Appendix (code).
-
-## Viva questions
-1. **What is predictive analytics?** Using historical data and models to estimate future or unknown values.
-2. **Regression vs classification?** Regression predicts a number (temperature); classification predicts a category.
-3. **Why Linear Regression first?** It is simple, fast, interpretable, and a good baseline.
-4. **How does Random Forest work?** Many decision trees are trained on random samples; their predictions are averaged.
-5. **Why a chronological split, not random?** Random mixing lets the model "see the future", giving unrealistically good scores.
-6. **What is data leakage?** Using information at training that wouldn't exist at prediction time. We avoid it by using only past-day features.
-7. **What are lag features?** Past values of the target (e.g. yesterday's temperature) used as inputs.
-8. **Why month and day of year?** Temperature is seasonal.
-9. **Explain MAE.** Average absolute difference between actual and predicted, in °C.
-10. **Explain RMSE.** Square root of the mean squared error; punishes large errors more.
-11. **Explain R².** Fraction of variance in temperature the model explains; 1 is perfect, 0 is no better than the mean.
-12. **What is the persistence baseline and why use it?** Predicting "same as yesterday"; shows whether the model adds real value.
-13. **How did you handle missing values?** Dropped invalid rows, interpolated gaps of ≤3 days only.
-14. **Why Joblib?** Saves the trained model so Flask loads it without retraining.
-15. **What does Flask do here?** Serves the page and JSON APIs, validates input, runs the model.
-16. **Why not ask users for tomorrow's humidity?** It's unknown at prediction time; it would be leakage or guesswork.
-17. **Can you claim this forecasts weather accurately?** Only as far as the time-based test shows: one day ahead, one location.
-18. **What is overfitting?** Model memorizes training data and does poorly on new data; the test set reveals it.
-19. **How to improve the model?** More features, more data, tuning, time-series models (SARIMA/LSTM).
-20. **Which model won?** Answer from your own dashboard numbers, citing RMSE and the baseline.
