@@ -1,0 +1,11 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+.vscode/
+.DS_Store
+# Trained artifacts are re-created by train_model.py
+models/*.joblib
+models/analytics.json
+# Large datasets: keep out of Git, document the source in README instead
+data/*.csv
